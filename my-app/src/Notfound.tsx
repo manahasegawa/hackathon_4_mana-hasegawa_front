@@ -1,8 +1,6 @@
 import React from 'react';
 import App from "./App";
 function Notfound(){
-    return(
-
-    );
+    return
 }
 export default Notfound;
