@@ -4,6 +4,10 @@ function Home(){
     //新着・更新順にソート
     //アイテムをテーブルからGET
     //
-    return
+    return(
+        <div>
+            中身
+        </div>
+    )
 }
 export default Home;
