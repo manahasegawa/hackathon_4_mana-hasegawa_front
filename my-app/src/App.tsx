@@ -9,6 +9,7 @@ import Home from "./Home";
 
 
 function App() {
+
     // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
     const [loginUser, setLoginUser] = useState(fireauth.currentUser);
 
@@ -16,11 +17,12 @@ function App() {
     onAuthStateChanged(fireauth, user => {
         setLoginUser(user);
     });
+
   return (
     <div className="App">
       <header className="App-header">
       </header>
-      <Login/>
+        <Login/>
         {/* ログインしていないと見られないコンテンツは、loginUserがnullの場合表示しない */}
         {loginUser ? <Home /> : null}
     </div>
