@@ -6,7 +6,7 @@ import {fireauth} from "./Fireauth";
 //各ページのtsxファイルをインポート
 import {Login} from "./Login";
 import Home from "./Home";
-
+import Post  from "./Post";
 
 function App() {
 
@@ -25,6 +25,7 @@ function App() {
         <Login/>
         {/* ログインしていないと見られないコンテンツは、loginUserがnullの場合表示しない */}
         {loginUser ? <Home /> : null}
+        {loginUser ? <Post /> : null}
     </div>
   );
 }
