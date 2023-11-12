@@ -50,7 +50,7 @@ function Delete(){
         <form
             style={{display: "flex", flexDirection: "column"}}
             onSubmit={handleSubmit}
-            action="/localhost:8000"
+            action="https://hackathon-4-mana-hasegawa-back-mbuoyt5akq-uc.a.run.app/"
             method="POST"
         >
 
