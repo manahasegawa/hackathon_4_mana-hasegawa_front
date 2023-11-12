@@ -15,7 +15,7 @@ function Delete(){
         try{
 
             const response = await fetch(
-                "http://localhost:8000",
+                "https://hackathon-4-mana-hasegawa-back-mbuoyt5akq-uc.a.run.app/",
                 {
                     method: "DELETE",
                     headers: {

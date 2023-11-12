@@ -23,7 +23,7 @@ function Post(){
 
 
             const response = await fetch(
-                "http://localhost:8000",
+                "https://hackathon-4-mana-hasegawa-back-mbuoyt5akq-uc.a.run.app/",
                 {
                     method: "POST",
                     headers: {
@@ -60,7 +60,7 @@ function Post(){
         <form
             style={{display: "flex", flexDirection: "column"}}
             onSubmit={handleSubmit}
-            action="/localhost:8000"
+            action="https://hackathon-4-mana-hasegawa-back-mbuoyt5akq-uc.a.run.app/"
             method="POST"
         >
 
