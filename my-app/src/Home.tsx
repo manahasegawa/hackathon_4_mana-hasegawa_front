@@ -1,8 +1,7 @@
-import React from "react";
-import "./App.css";
+import React　from "react";
 import { useEffect } from "react";
 import { useState} from "react";
-import { DataGrid } from '@mui/x-data-grid';
+
 
 
 interface ItemData {
@@ -14,11 +13,12 @@ interface ItemData {
     curriculum  :string
 }
 
-
 function Home() {
+
 
     const [itemData, setItemData] = useState<ItemData[]>([]);
     const [isAsc, setIsAsc] = useState(true);
+
 
     const fetchItems = async () => {
         try{
@@ -31,8 +31,8 @@ function Home() {
 
             if (getResponse.status === 200) {
                 // GETリクエストの結果を処理
-                const itemData = await getResponse.json();
-                setItemData(itemData);
+                const Data = await getResponse.json();
+                setItemData(Data);
             } else {
                 // GETリクエストが失敗した場合の処理
                 console.error("GET request failed");
@@ -49,22 +49,27 @@ function Home() {
 
     const sortByTime = () => {
         setItemData(itemData.sort((a, b) => (isAsc ? a.time.localeCompare(b.time) : b.time.localeCompare(a.time))));
-        setIsAsc((isAsc ? false : true));
+        setIsAsc((isAsc!=true));
     };
 
-
-
+    const columns = [
+        { field: 'title', headerName: 'Title', width: 300 },
+        { field: 'category', headerName: 'category', width: 300 },
+        { field: 'curriculum', headerName: 'curriculum', width: 300 },
+        { field: 'explanation', headerName: 'explanation', width: 300 },
+        { field: 'time', headerName: 'time', width: 300 }
+    ]
 
 
     return (
         <div className="App">
             <header className="App-header">
             </header>
-            <div>
-                <div>
-                    <button onClick={sortByTime}>新しい順</button>
+
                     <button onClick={sortByTime}>古い順</button>
-                </div>
+                    <button onClick={sortByTime}>新しい順</button>
+
+
                 <table>
                     <thead>
                     <tr>
@@ -76,7 +81,7 @@ function Home() {
                     </tr>
                     </thead>
                     <tbody>
-                    {itemData.map((item,index) =>(
+                    {itemData.map((item, index) =>(
                         <tr key={index}>
                             <td>{item.title}</td>
                             <td>{item.category}</td>
@@ -88,8 +93,6 @@ function Home() {
                     </tbody>
                 </table>
             </div>
-
-        </div>
 
     );
 }

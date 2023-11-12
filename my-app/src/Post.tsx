@@ -20,8 +20,7 @@ function Post(){
         e.preventDefault()
 
         try{
-            const category_id = parseInt(category,10);
-            const curriculum_id = parseInt(curriculum,10);
+
 
             const response = await fetch(
                 "http://localhost:8000",
@@ -32,22 +31,23 @@ function Post(){
                     },
                     body: JSON.stringify({
                         title,
-                        category_id,
-                        curriculum_id,
+                        category,
+                        curriculum,
                         explanation
                     }),
                 }
             );
             if (response.status === 200) {
                 console.log("POST succeeded")
+                console.log(category,curriculum)
             } else {
                 console.error("POST request failed")
             }
 
             setTitle("");
             setExplanation("");
-            setCategory("");
-            setCurriculum("");
+            setCategory("1");
+            setCurriculum("1");
 
 
         } catch (err) {

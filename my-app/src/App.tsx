@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
-import { onAuthStateChanged } from "firebase/auth";
-import {fireauth} from "./Fireauth";
-
-//各ページのtsxファイルをインポート
-import {Login} from "./Login";
 import Home from "./Home";
-import Post  from "./Post";
+import Post from "./Post";
+import Delete from "./Delete";
+import {fireauth} from "./Fireauth";
+import {onAuthStateChanged} from "firebase/auth";
+import {Login} from "./Login";
 
 function App() {
 
@@ -17,15 +16,17 @@ function App() {
     onAuthStateChanged(fireauth, user => {
         setLoginUser(user);
     });
-
-  return (
+    return (
     <div className="App">
+        <div className="App">
+            <Login/>
+            {/* ログインしていないと見られないコンテンツは、loginUserがnullの場合表示しない */}
+            {loginUser ? <Home /> : null}
+            {loginUser ? <Post /> : null}
+            {loginUser ? <Delete /> : null}
+        </div>
       <header className="App-header">
       </header>
-        <Login/>
-        {/* ログインしていないと見られないコンテンツは、loginUserがnullの場合表示しない */}
-        {loginUser ? <Home /> : null}
-        {loginUser ? <Post /> : null}
     </div>
   );
 }
