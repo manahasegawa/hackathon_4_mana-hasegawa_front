@@ -27,6 +27,7 @@ function Home() {
                 headers: {
                     "Content-Type": "application/json",
                 },
+
             });
 
             if (getResponse.status === 200) {
