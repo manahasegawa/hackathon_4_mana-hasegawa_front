@@ -50,7 +50,7 @@ function Home() {
 
     const sortByTime = () => {
         setItemData(itemData.sort((a, b) => (isAsc ? a.time.localeCompare(b.time) : b.time.localeCompare(a.time))));
-        setIsAsc(!isAsc);
+        setIsAsc(isAsc==false);
     };
 
     const [filteredCategory, setFilteredCategory] = useState(null);
