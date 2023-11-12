@@ -46,7 +46,7 @@ function Home() {
 
     useEffect(() => {
         fetchItems();
-    });
+    },[]);
 
     const sortByTime = () => {
         setItemData(itemData.sort((a, b) => (isAsc ? a.time.localeCompare(b.time) : b.time.localeCompare(a.time))));
