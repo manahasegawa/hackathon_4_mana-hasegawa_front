@@ -1,10 +1,8 @@
 import React　from "react";
 import { useEffect } from "react";
 import { useState} from "react";
-import { DataGrid } from '@mui/x-data-grid';
-import {Login} from "./Login";
-import { onAuthStateChanged } from "firebase/auth";
-import {fireauth} from "./Fireauth";
+
+
 
 interface ItemData {
     id          :string
@@ -17,13 +15,6 @@ interface ItemData {
 
 function Home() {
 
-    // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
-    const [loginUser, setLoginUser] = useState(fireauth.currentUser);
-
-    // ログイン状態を監視して、stateをリアルタイムで更新する
-    onAuthStateChanged(fireauth, user => {
-        setLoginUser(user);
-    });
 
     const [itemData, setItemData] = useState<ItemData[]>([]);
     const [isAsc, setIsAsc] = useState(true);
@@ -75,19 +66,8 @@ function Home() {
             <header className="App-header">
             </header>
 
-                <Login/>
-                {/* ログインしていないと見られないコンテンツは、loginUserがnullの場合表示しない */}
-                {loginUser ? <Home /> : null}
-
-            {/*
-            <div>
-                <DataGrid columns={columns} rows={itemData}/>
-            </div>
-            */}
-
-
-                    <button onClick={sortByTime}>新しい順</button>
                     <button onClick={sortByTime}>古い順</button>
+                    <button onClick={sortByTime}>新しい順</button>
 
 
                 <table>
