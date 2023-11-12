@@ -1,31 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import { onAuthStateChanged } from "firebase/auth";
-import {fireauth} from "./Fireauth";
-
-//各ページのtsxファイルをインポート
-import {Login} from "./Login";
 import Home from "./Home";
-import Post  from "./Post";
+import Post from "./Post";
+import Delete from "./Delete";
 
 function App() {
-
-    // stateとしてログイン状態を管理する。ログインしていないときはnullになる。
-    const [loginUser, setLoginUser] = useState(fireauth.currentUser);
-
-    // ログイン状態を監視して、stateをリアルタイムで更新する
-    onAuthStateChanged(fireauth, user => {
-        setLoginUser(user);
-    });
-
-  return (
+    return (
     <div className="App">
+        <div className="App">
+            <Home/>
+            <Post/>
+            <Delete/>
+        </div>
       <header className="App-header">
       </header>
-        <Login/>
-        {/* ログインしていないと見られないコンテンツは、loginUserがnullの場合表示しない */}
-        {loginUser ? <Home /> : null}
-        {loginUser ? <Post /> : null}
     </div>
   );
 }
