@@ -22,7 +22,7 @@ function Home() {
 
     const fetchItems = async () => {
         try {
-            const getResponse = await fetch("http://localhost:8000", {
+            const getResponse = await fetch("https://hackathon-4-mana-hasegawa-back-mbuoyt5akq-uc.a.run.app/", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
